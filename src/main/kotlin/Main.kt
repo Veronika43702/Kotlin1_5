@@ -39,9 +39,9 @@ object WallService {
 
     // обновление поста по id (вывод false, если поста нет)
     fun update(post: Post): Boolean {
-        for (postInPosts in posts) {
+        for ((index, postInPosts) in posts.withIndex()) {
             if (postInPosts.id == post.id) {
-                val postUpdate = post.copy(
+                posts[index] = post.copy(
                     post.id,
                     post.owner_id,
                     post.from_id,
@@ -53,7 +53,6 @@ object WallService {
                     post.can_delete,
                     post.can_edit
                 )
-                posts.set(posts.indexOf(postInPosts), postUpdate)
                 return true
             }
         }
@@ -64,7 +63,7 @@ object WallService {
         println(posts.contentToString())
     }
 
-    fun clear(){
+    fun clear() {
         posts = emptyArray()
         id = 1
     }
