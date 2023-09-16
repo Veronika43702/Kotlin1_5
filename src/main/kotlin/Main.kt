@@ -1,4 +1,5 @@
 import javax.swing.text.StyledEditorKit.BoldAction
+import Attachment as Attachment
 
 data class Post(
     val id: Int,
@@ -16,9 +17,10 @@ data class Post(
     val reposts: Reposts = Reposts(),
     val views: Views = Views(),
     val post_type: String = "post",
+    val attachemnts: Array<Attachment> = emptyArray(),
     val geo: Geo? = Geo(),
     val signer_id: Int = 0,
-    val copy_history: Array<Post> = arrayOf(),
+    val copy_history: Array<Post> = emptyArray(),
     val can_pin: Boolean = true,
     val can_delete: Boolean = true,
     val can_edit: Boolean = true,
@@ -68,9 +70,6 @@ data class Post(
         val can_publish_free_copy: Boolean = true,
         val edit_mode: String = "All"
     )
-
-
-
 }
 
 object WallService {
@@ -105,32 +104,34 @@ object WallService {
         posts = emptyArray()
         id = 1
     }
-
-    fun getPosts(): Array<Post> {
-        return posts
-    }
 }
 
 fun main(args: Array<String>) {
-    val comment1 = Post.Comments(1, true)
-    val comment2 = Post.Comments(2, false)
-    val post1 = Post(0,  "16.09.23", "Hello")
-    val post2 = Post(0, "20.09.23", "Hello", comments = comment1, likes = Post.Likes(user_likes = true))
-    val post3 = Post(0, "20.09.23", "Time for fun")
+//    val attachment1 = PhotoAttachment()
+//    val attachment2 = AudioAttachment()
+//    val attachment = arrayOf(attachment1, attachment2)
+//
+//    println(attachment1.photo.id)
+//    val comment1 = Post.Comments(1, true)
+//    val comment2 = Post.Comments(2, false)
+//
+//    val post1 = Post(0, "16.09.23", "Hello", comments = comment1, attachemnts = attachment)
+//    val post2 = Post(0, "20.09.23", "Hello", comments = comment2, likes = Post.Likes(user_likes = true))
+//    val post3 = Post(0, "20.09.23", "Time for fun")
+//
+//    //добавление постов
+//    WallService.add(post1)
+//    WallService.add(post2)
+//    WallService.add(post3)
 
-    // добавление постов
-    println(WallService.add(post1))
-    println(WallService.add(post2))
-    println(WallService.add(post3))
-
-    // вывод полученного массива
-    println("массив постов:")
-    WallService.printPosts()
-    // обновление постов
-    val post4 = Post(2, "21.10.23", "Goodbye", comments = comment2)
-    val post5 = Post(10, "10.10.23", "Goodbye")
-    println(WallService.update(post4))
-    println(WallService.update(post5))
-    // вывод обновленного массива
-    WallService.printPosts()
+//    // вывод постов
+//    WallService.printPosts()
+//    // обновление постов
+//    val post4 = Post(2, "21.10.23", "Goodbye", comments = comment1)
+//    val post5 = Post(100, "10.10.23", "Goodbye")
+//    println(WallService.update(post4))
+//    println(WallService.update(post5))
+//
+//    // вывод обновленного массива
+//    WallService.printPosts()
 }
