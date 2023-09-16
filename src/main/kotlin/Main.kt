@@ -41,18 +41,7 @@ object WallService {
     fun update(post: Post): Boolean {
         for ((index, postInPosts) in posts.withIndex()) {
             if (postInPosts.id == post.id) {
-                posts[index] = post.copy(
-                    post.id,
-                    post.owner_id,
-                    post.from_id,
-                    post.date,
-                    post.text,
-                    post.comments,
-                    post.likes,
-                    post.can_pin,
-                    post.can_delete,
-                    post.can_edit
-                )
+                posts[index] = post.copy()
                 return true
             }
         }
