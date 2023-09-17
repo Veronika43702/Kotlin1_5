@@ -110,8 +110,6 @@ fun main(args: Array<String>) {
 //    val attachment1 = PhotoAttachment()
 //    val attachment2 = AudioAttachment()
 //    val attachment = arrayOf(attachment1, attachment2)
-//
-//    println(attachment1.photo.id)
 //    val comment1 = Post.Comments(1, true)
 //    val comment2 = Post.Comments(2, false)
 //
@@ -123,7 +121,7 @@ fun main(args: Array<String>) {
 //    WallService.add(post1)
 //    WallService.add(post2)
 //    WallService.add(post3)
-
+//
 //    // вывод постов
 //    WallService.printPosts()
 //    // обновление постов
